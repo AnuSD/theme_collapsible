@@ -1,0 +1,301 @@
+/* ===== Base Layout ===== */
+.collapse-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  padding: 60px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.main-title {
+  font-size: 50px;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+}
+
+.subtitle {
+  font-size: 22px;
+  color: #777;
+  margin-top: 10px;
+}
+
+/* ===== Main Card ===== */
+.card {
+  display: flex;
+  background: #CECED9;
+  border: 1px solid #ff0000;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  padding: 25px;
+  gap: 20px;
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.first {
+  width: 40px;
+  height: 40px;
+  background: #ff0000;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+}
+
+.card-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111;
+  margin: 0 0 5px 0;
+  text-align: left;
+}
+
+.description {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Links inside description */
+.sub-description a {
+  color: #007bff;
+  text-decoration: underline;
+}
+.sub-description a:hover {
+  color: #0056b3;
+}
+
+/* ===== Bottom Row ===== */
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  position: relative;
+  margin-top: 20px;
+}
+
+.shapes {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.shape-box {
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #E6E6F2;
+}
+
+.diamond {
+  width: 10px;
+  height: 10px;
+  background: #F37379;
+  transform: rotate(45deg);
+}
+
+.square {
+  width: 14px;
+  height: 14px;
+  background: #F37379;
+}
+
+/* ===== Toggle Button ===== */
+.toggle-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: none;
+  color: #ff0000;
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  color: #cc0000;
+  opacity: 0.8;
+}
+
+/* ===== Inner Collapsible Section ===== */
+.inner-collapse {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.6s ease-in-out;
+}
+
+.inner-collapse.open {
+  max-height: 1000px; /* adjust if more items */
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 20px;
+  transition: max-height 0.8s ease, opacity 0.6s ease, transform 0.6s ease;
+}
+
+
+/* ===== Subcards ===== */
+.subcard {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.divider {
+  border: none;
+  border-top: 1.5px solid #ff0000;
+  margin: 12px 0;
+}
+
+.sub-content {
+  padding: 10px 0;
+}
+
+.sub-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 5px;
+}
+
+.sub-description {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+/* ===== Animations ===== */
+.fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .main-title {
+    font-size: 42px;
+  }
+  .subtitle {
+    font-size: 18px;
+  }
+  .card {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .first {
+    width: 35px;
+    height: 35px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .toggle-btn {
+    font-size: 15px;
+  }
+
+  .shape-box {
+    width: 28px;
+    height: 28px;
+  }
+
+  .diamond,
+  .square {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .collapse-wrapper {
+    padding: 40px 10px;
+  }
+
+  .main-title {
+    font-size: 34px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .toggle-btn {
+    font-size: 14px;
+  }
+}
